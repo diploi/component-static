@@ -18,14 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - identifier: static
-            name: Static
+          - name: Static
             folder: .
-            type: 'main'
-          - identifier: static
-            name: Static Dev
+            type: main
+          - name: Static Dev
             folder: .
-            type: 'dev'
+            type: dev
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -40,7 +38,7 @@ jobs:
         with:
           registry-type: public
       - name: Diploi build
-        uses: diploi/action-build@v1.8
+        uses: diploi/action-build@v1.10
         with: ${{ matrix }}
         env:
           project: ${{ env.PROJECT }}
