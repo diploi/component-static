@@ -1,6 +1,6 @@
 :3000 {
     root * .
-    file_server browse
+    file_server
     encode gzip
     log {
         output stdout

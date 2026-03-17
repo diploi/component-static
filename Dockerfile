@@ -7,7 +7,7 @@ FROM caddy:2.11-alpine
 RUN mkdir -p /data /config \
  && chown -R 1000:1000 /data /config
 
-COPY . /app
+COPY ${FOLDER}
 
 USER 1000:1000
 
