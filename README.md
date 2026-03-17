@@ -27,6 +27,10 @@ The component serves files directly from your repository root. Edit your HTML, C
 
 Builds a production-ready image containing your static files. Caddy serves them with gzip compression.
 
+### Configuration
+
+The component includes a `Caddyfile` that you can freely edit to configure Caddy. You can easily add redirects, custom headers, or URL rewriting rules, for example.
+
 ## Links
 
 - [Caddy documentation](https://caddyserver.com/docs/)
