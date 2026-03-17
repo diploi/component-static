@@ -1,0 +1,15 @@
+diploiVersion: v1.0
+type: component
+name: Static
+description: Official Diploi component for static websites
+
+supportsAdditionalHosts: { serviceName: 'app' }
+
+hosts:
+  - name: App
+    identifier: app
+    port: 3000
+
+images:
+  - identifier: app
+    prebuildImage: public.ecr.aws/p8t2q7f4/diploi/component-static:[tag]

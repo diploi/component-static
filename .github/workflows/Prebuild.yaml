@@ -1,0 +1,48 @@
+name: Pre-Build Components
+
+on:
+  push:
+
+env:
+  REGISTRY: public.ecr.aws
+  PROJECT: p8t2q7f4/${{ github.repository }}
+
+jobs:
+  run-builds:
+    name: Build ${{ matrix.name }} ${{ matrix.stage }}
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    needs: define-components
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - identifier: static
+            name: Static
+            folder: .
+            type: 'main'
+          - identifier: static
+            name: Static Dev
+            folder: .
+            type: 'dev'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::300197899440:role/ECRPrebuildPushRightsForGithubActionsRole
+          aws-region: us-east-1
+      - name: Login to Amazon ECR Public
+        id: login-ecr-public
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          registry-type: public
+      - name: Diploi build
+        uses: diploi/action-build@v1.8
+        with: ${{ matrix }}
+        env:
+          project: ${{ env.PROJECT }}
+          registry: ${{ env.REGISTRY }}

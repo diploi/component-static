@@ -1,0 +1,9 @@
+:3000 {
+    root * .
+    file_server browse
+    encode gzip
+    log {
+        output stdout
+        format console
+    }
+}
