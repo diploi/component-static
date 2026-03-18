@@ -1,11 +1,11 @@
 :3000 {
-    root * .
-    file_server {
-        hide Dockerfile Dockerfile.dev README.md
-    }
-    encode gzip
-    log {
-        output stdout
-        format console
-    }
+	root * .
+	file_server {
+		hide Dockerfile Dockerfile.dev README.md
+	}
+	encode gzip
+	log {
+		output stdout
+		format console
+	}
 }
