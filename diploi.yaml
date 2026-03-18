@@ -1,6 +1,6 @@
 diploiVersion: v1.0
 type: component
-name: Static
+name: Static Website
 description: Official Diploi component for static websites
 
 supportsAdditionalHosts: { serviceName: 'app' }

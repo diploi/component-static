@@ -1,6 +1,8 @@
 :3000 {
     root * .
-    file_server
+    file_server {
+        hide Dockerfile Dockerfile.dev README.md
+    }
     encode gzip
     log {
         output stdout
