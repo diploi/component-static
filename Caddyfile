@@ -5,7 +5,7 @@
 :3000 {
 	root * .
 	file_server {
-		hide .* diploi.yaml Dockerfile Dockerfile.dev LICENSE README.md
+		hide .* diploi.yaml Dockerfile Dockerfile.dev README.md
 	}
 	encode gzip
 	log {

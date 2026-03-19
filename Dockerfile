@@ -3,13 +3,7 @@ ARG FOLDER=/app
 
 FROM caddy:2.11-alpine
 
-# Make Caddy storage dirs writable by non-root user
-RUN mkdir -p /data /config \
- && chown -R 1000:1000 /data /config
-
 COPY ${FOLDER} /srv
-
-USER 1000:1000
 
 EXPOSE 3000
 
