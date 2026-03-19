@@ -1,6 +1,7 @@
 .*
 diploi.yaml
 Dockerfile
+Dockerfile.dockerignore
 Dockerfile.dev
 LICENSE
 README.md
