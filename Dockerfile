@@ -2,6 +2,7 @@
 ARG FOLDER=/app
 
 FROM caddy:2.11-alpine
+ARG FOLDER
 
 COPY ${FOLDER} /srv
 
