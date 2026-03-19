@@ -5,7 +5,7 @@ FROM caddy:2.11-alpine
 ARG FOLDER
 
 COPY . /app
-RUN rm -rf /srv && mv ${FOLDER} /srv && rm -rf /app
+RUN cp -r ${FOLDER}/. /srv && rm -rf /app
 
 EXPOSE 3000
 
